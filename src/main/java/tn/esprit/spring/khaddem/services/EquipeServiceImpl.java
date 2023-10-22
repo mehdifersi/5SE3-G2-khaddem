@@ -77,7 +77,7 @@ public class EquipeServiceImpl implements IEquipeService{
                             }
                             if (nbEtudiantsAvecContratsActifs >= 3) break;
                         }
-// t2 : recuperer date a linstant t2 : te=t2-t11
+// t2 : recuperer date a linstant t2 : te=t2-t1
                     }
                     log.info("nbEtudiantsAvecContratsActifs: " + nbEtudiantsAvecContratsActifs);
                     if (nbEtudiantsAvecContratsActifs >= 3) {
