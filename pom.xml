@@ -62,6 +62,7 @@
                 </configuration>
             </plugin>
         </plugins>
+         <finalName>5SE3-G2-khaddem</finalName>
     </build>
 
 </project>
