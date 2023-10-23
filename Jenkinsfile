@@ -16,7 +16,7 @@ pipeline {
         
         stage('Stage 3') {
             steps {
-                echo '3alawi'
+                echo 'makki'
             }
         }
     }
