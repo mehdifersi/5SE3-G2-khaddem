@@ -37,13 +37,14 @@ public class UniversiteServiceImpl implements  IUniversiteService{
 
     @Override
     public Universite retrieveUniversite(Integer idUniversite) {
-        return universiteRepository.findById(idUniversite).get();
+        return universiteRepository.findById(idUniversite).orElse(null);
     }
 
     @Transactional
     public void assignUniversiteToDepartement(Integer universiteId, Integer departementId) {
-        Universite universite =universiteRepository.findById(universiteId).get();
-        Departement departement=departementRepository.findById(departementId).get();
+        Universite universite =universiteRepository.findById(universiteId).orElse(null);
+        Departement departement=departementRepository.findById(departementId).orElse(null);
+        assert universite != null;
         universite.getDepartements().add(departement);
         log.info("departements number "+universite.getDepartements().size());
     }
