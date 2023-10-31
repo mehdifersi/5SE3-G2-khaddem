@@ -107,5 +107,10 @@
         </plugins>
          <finalName>5SE3-G2-khaddem</finalName>
     </build>
-
+<distributionManagement>
+  <repository>
+    <id>deploymentRepo</id>
+    <url>http://192.168.44.135:8081/repository/maven-releases/</url>
+  </repository>
+</distributionManagement>
 </project>
