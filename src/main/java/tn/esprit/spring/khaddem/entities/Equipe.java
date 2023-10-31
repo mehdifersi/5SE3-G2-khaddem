@@ -7,6 +7,7 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -30,4 +31,7 @@ public class Equipe  implements Serializable {
     private List<Etudiant> etudiants;
     @OneToOne(cascade = CascadeType.ALL)
     private DetailEquipe detailEquipe;
+
+    public <E> Equipe(int i, String equipe1, Niveau niveau, ArrayList<E> es) {
+    }
 }
