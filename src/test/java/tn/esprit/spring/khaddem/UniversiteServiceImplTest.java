@@ -22,9 +22,9 @@ import java.util.Optional;
 
 import static org.mockito.Mockito.when;
 
-@SpringBootTest
+
 @ExtendWith(MockitoExtension.class)
-public class UniversiteServiceImplTest {
+class UniversiteServiceImplTest {
     @InjectMocks
     private UniversiteServiceImpl universiteService;
 
@@ -37,7 +37,7 @@ public class UniversiteServiceImplTest {
         MockitoAnnotations.initMocks(this);
     }
     @Test
-    public void retrieveAllUniversites() {
+    void retrieveAllUniversites() {
         List<Universite> expectedUniversites = new ArrayList<>();
         expectedUniversites.add(new Universite(1, "ESPRIT", new ArrayList<>()));
         expectedUniversites.add(new Universite(2, "TEKUP", new ArrayList<>()));
@@ -47,7 +47,7 @@ public class UniversiteServiceImplTest {
     }
 
     @Test
-    public void addUniversite() {
+    void addUniversite() {
         Universite universiteToAdd = new Universite();
         universiteToAdd.setNomUniv("Sample Universite");
         when(universiteRepository.save((universiteToAdd))).thenReturn(universiteToAdd);
@@ -55,7 +55,7 @@ public class UniversiteServiceImplTest {
         Assertions.assertEquals(universiteToAdd, addedUniversite);
     }
     @Test
-    public void updateUniversite() {
+    void updateUniversite() {
         Universite universiteToUpdate = new Universite();
         universiteToUpdate.setIdUniversite(1);
         universiteToUpdate.setNomUniv("Updated Universite");
@@ -64,7 +64,7 @@ public class UniversiteServiceImplTest {
         Assertions.assertEquals(universiteToUpdate, updatedUniversite);
     }
     @Test
-    public void retrieveUniversite() {
+    void retrieveUniversite() {
         Universite expectedUniversite = new Universite();
         expectedUniversite.setIdUniversite(1);
         when(universiteRepository.findById(1)).thenReturn(Optional.of(expectedUniversite));
