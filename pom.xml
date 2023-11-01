@@ -79,10 +79,6 @@
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>3.9.1.2184</version>
-                <configuration>
-                    <!--<sonar.login>d1e2bdc369d71af0e21122296faf9b4007498216</sonar.login>-->
-                    <!-- Add other relevant configuration here -->
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
