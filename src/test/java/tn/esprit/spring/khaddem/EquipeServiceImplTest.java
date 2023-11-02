@@ -40,47 +40,7 @@ class EquipeServiceImplTest {
         // You can add more specific assertions based on your test scenario
     }
 
-//    @Test
-//    void addEquipe() {
-//        // Create an instance of EquipeServiceImpl and mock dependencies
-//        EquipeRepository equipeRepository = Mockito.mock(EquipeRepository.class);
-//        EquipeServiceImpl equipeService = new EquipeServiceImpl(equipeRepository, null);
-//
-//        // Create a mock equipe to add
-//        Equipe mockEquipe = new Equipe(/* Initialize with necessary data */);
-//
-//        // Mock the behavior of equipeRepository.save()
-//        when(equipeRepository.save(mockEquipe)).thenReturn(mockEquipe);
-//
-//        // Perform the test
-//        Equipe addedEquipe = equipeService.addEquipe(mockEquipe);
-//
-//        // Assert that the returned equipe is the same as the one added
-//        assertEquals(mockEquipe, addedEquipe);
-//        // Verify that the save method was called
-//        Mockito.verify(equipeRepository).save(mockEquipe);
-//    }
 
-//    @Test
-//    void updateEquipe() {
-//        // Create an instance of EquipeServiceImpl and mock dependencies
-//        EquipeRepository equipeRepository = Mockito.mock(EquipeRepository.class);
-//        EquipeServiceImpl equipeService = new EquipeServiceImpl(equipeRepository, null);
-//
-//        // Create a mock equipe to update
-//        Equipe mockEquipe = new Equipe(/* Initialize with necessary data */);
-//
-//        // Mock the behavior of equipeRepository.save()
-//        when(equipeRepository.save(mockEquipe)).thenReturn(mockEquipe);
-//
-//        // Perform the test
-//        Equipe updatedEquipe = equipeService.updateEquipe(mockEquipe);
-//
-//        // Assert that the returned equipe is the same as the one updated
-//        assertEquals(mockEquipe, updatedEquipe);
-//        // Verify that the save method was called
-//        Mockito.verify(equipeRepository).save(mockEquipe);
-//    }
 
     @Test
     void retrieveEquipe() {
@@ -101,37 +61,5 @@ class EquipeServiceImplTest {
         assertEquals(mockEquipe, retrievedEquipe);
     }
 
-//    @Test
-//  void evoluerEquipes() {
-//        // Create an instance of EquipeServiceImpl and mock dependencies
-//        EquipeRepository equipeRepository = Mockito.mock(EquipeRepository.class);
-//        ContratRepository contratRepository = Mockito.mock(ContratRepository.class);
-//        EquipeServiceImpl equipeService = new EquipeServiceImpl(equipeRepository, contratRepository);
-//
-//        // Create a mock equipe with necessary data
-//        Equipe mockEquipe = new Equipe();
-//        mockEquipe.setNiveau(Niveau.JUNIOR);
-//
-//        // Create a list of mock etudiants with contrat data
-//        List<Etudiant> etudiants = new ArrayList<>();
-//        Etudiant etudiant1 = new Etudiant();
-//        Etudiant etudiant2 = new Etudiant();
-//        Etudiant etudiant3 = new Etudiant();
-//        etudiants.add(etudiant1);
-//        etudiants.add(etudiant2);
-//        etudiants.add(etudiant3);
-//
-//        // Mock the behavior of equipeRepository.findAll()
-//        when(equipeRepository.findAll()).thenReturn(Collections.singletonList(mockEquipe));
-//
-//        // Mock the behavior of contratRepository.findByEtudiantIdEtudiant()
-//        when(contratRepository.findByEtudiantIdEtudiant(any())).thenReturn(new ArrayList<>());
-//
-//        // Perform the test
-//        equipeService.evoluerEquipes();
-//
-//        // Assert that the niveau of the equipe has been updated correctly
-//        assertEquals(Niveau.SENIOR, mockEquipe.getNiveau(), "Niveau of equipe should be updated to SENIOR.");
-//    }
 
 }
