@@ -22,8 +22,7 @@ public class UniversiteRestController {
     @Operation(description = "récupérer la liste des universités")
     @ResponseBody
     public List<Universite> getUniversites() {
-        List<Universite> listUniversites = universiteService.retrieveAllUniversites();
-        return listUniversites;
+        return universiteService.retrieveAllUniversites();
     }
 
     // http://localhost:8089/Kaddem/universite/retrieve-universite/8
@@ -39,8 +38,7 @@ public class UniversiteRestController {
     @Operation(description = "ajouter une université")
     @ResponseBody
     public Universite addUniversite(@RequestBody Universite u) {
-        Universite universite = universiteService.addUniversite(u);
-        return universite;
+        return universiteService.addUniversite(u);
     }
 
     // http://localhost:8089/Kaddem/universite/update-universite
@@ -48,8 +46,7 @@ public class UniversiteRestController {
     @Operation(description = "modifier une université")
     @ResponseBody
     public Universite updateUniversite(@RequestBody Universite u) {
-        Universite universite= universiteService.updateUniversite(u);
-        return universite;
+        return universiteService.updateUniversite(u);
     }
 
     // http://localhost:8089/Kaddem/universite/assignUniversiteToDepartement/1/1
