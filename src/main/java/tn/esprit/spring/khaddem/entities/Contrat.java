@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
-import lombok.*;
-
 @Entity
 public class Contrat implements Serializable {
 
