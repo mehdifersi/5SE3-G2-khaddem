@@ -39,7 +39,6 @@ public class ContratServiceImpl implements  IContratService{
     @Override
     public Contrat retrieveContrat(Integer idContrat) {
         log.info("debut methode retrieveContrat");
-
         return contratRepository.findById(idContrat).orElse(null);
     }
 
