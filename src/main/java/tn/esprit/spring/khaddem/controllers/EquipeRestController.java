@@ -42,7 +42,6 @@ public class EquipeRestController {
         return equipeService.addEquipe(equipe);
     }
 
-    // http://localhost:8089/Kaddem/equipe/update-equipe/{id}
     @PutMapping("/update-equipe/{id}")
     @ResponseBody
     public Equipe updateEtudiant(@PathVariable Integer id,@RequestBody EquipeDTO equipeDTO) {
