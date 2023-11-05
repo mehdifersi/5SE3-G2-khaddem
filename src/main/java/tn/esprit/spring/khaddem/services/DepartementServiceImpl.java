@@ -2,8 +2,6 @@ package tn.esprit.spring.khaddem.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tn.esprit.spring.khaddem.dto.DepartementDto;
-import tn.esprit.spring.khaddem.dto.DtoConverter;
 import tn.esprit.spring.khaddem.entities.Departement;
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,9 +25,6 @@ public class DepartementServiceImpl implements IDepartementService{
 
 
 
-
-    @Autowired
-    DtoConverter dtoConverter;
 
 
     @Override
