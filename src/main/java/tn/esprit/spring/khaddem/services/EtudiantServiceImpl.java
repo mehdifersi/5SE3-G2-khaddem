@@ -82,9 +82,6 @@ public class EtudiantServiceImpl implements IEtudiantService{
         Contrat contrat = contratRepository.findById(idContrat).orElse(null);
         Equipe equipe=equipeRepository.findById(idEquipe).orElse(null);
         Etudiant etudiant= etudiantRepository.save(e);
-        log.info("contrat: "+contrat.getSpecialite());
-        log.info("equipe: "+equipe.getNomEquipe());
-        log.info("etudiant: "+etudiant.getNomE()+" "+etudiant.getPrenomE()+" "+etudiant.getOp());
         List<Equipe> equipesMisesAjour = new ArrayList<>();
         if (contrat!=null && equipe!=null){
             contrat.setEtudiant(etudiant);
