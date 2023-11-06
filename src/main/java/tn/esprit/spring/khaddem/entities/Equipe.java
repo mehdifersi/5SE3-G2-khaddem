@@ -1,13 +1,9 @@
 package tn.esprit.spring.khaddem.entities;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import lombok.experimental.FieldDefaults;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -32,6 +28,6 @@ public class Equipe  implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     private DetailEquipe detailEquipe;
 
-    public <E> Equipe(int i, String equipe1, Niveau niveau, ArrayList<E> es) {
+    public <E> Equipe(int i, String equipe1, Niveau niveau, List<E> es) {
     }
 }
