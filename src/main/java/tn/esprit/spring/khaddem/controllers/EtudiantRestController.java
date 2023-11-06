@@ -34,14 +34,14 @@ public class EtudiantRestController {
     @PostMapping("/add-etudiant")
     @ResponseBody
     public Etudiant addEtudiant(@RequestBody Etudiant e) {
-        return etudiantService.addEtudiant(e);
+        return etudiantService.addOrUpdateEtudiant(e);
     }
 
     // http://localhost:8089/Kaddem/etudiant/update-etudiant
     @PutMapping("/update-etudiant")
     @ResponseBody
     public Etudiant updateEtudiant(@RequestBody Etudiant e) {
-        return etudiantService.updateEtudiant(e);
+        return etudiantService.addOrUpdateEtudiant(e);
     }
     // http://localhost:8089/Kaddem/etudiant/removeEtudiant
     @DeleteMapping("/removeEtudiant/{idEtudiant}")

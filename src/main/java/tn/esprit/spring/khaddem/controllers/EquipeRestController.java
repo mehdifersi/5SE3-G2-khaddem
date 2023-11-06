@@ -1,6 +1,7 @@
 package tn.esprit.spring.khaddem.controllers;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.spring.khaddem.dto.EquipeDTO;
@@ -13,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/equipe")
 public class EquipeRestController {
-
+    @Autowired
     EquipeRepository equipeRepository;
     IEquipeService equipeService;
     // http://localhost:8089/Kaddem/equipe/retrieve-all-equipes
@@ -45,7 +46,7 @@ public class EquipeRestController {
     @PutMapping("/update-equipe/{id}")
     @ResponseBody
     public Equipe updateEtudiant(@PathVariable Integer id,@RequestBody EquipeDTO equipeDTO) {
-        Equipe existingEquipe = equipeRepository.findById(id).orElse(null);
+        Equipe existingEquipe = equipeRepository.findById(id).get();
         existingEquipe.setNomEquipe(equipeDTO.getNomEquipe());
         existingEquipe.setNiveau(equipeDTO.getNiveau());
         return  equipeService.updateEquipe(existingEquipe);
