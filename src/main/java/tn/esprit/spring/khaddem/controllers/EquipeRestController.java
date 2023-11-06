@@ -46,7 +46,7 @@ public class EquipeRestController {
     @PutMapping("/update-equipe/{id}")
     @ResponseBody
     public Equipe updateEtudiant(@PathVariable Integer id,@RequestBody EquipeDTO equipeDTO) {
-        Equipe existingEquipe = equipeRepository.findById(id).get();
+        Equipe existingEquipe = equipeRepository.findById(id).orElse(null);
         existingEquipe.setNomEquipe(equipeDTO.getNomEquipe());
         existingEquipe.setNiveau(equipeDTO.getNiveau());
         return  equipeService.updateEquipe(existingEquipe);

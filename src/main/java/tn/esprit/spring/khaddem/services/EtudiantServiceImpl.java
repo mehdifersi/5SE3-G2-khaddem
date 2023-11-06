@@ -18,7 +18,7 @@ import java.util.List;
 @Slf4j
 @AllArgsConstructor
 public class EtudiantServiceImpl implements IEtudiantService{
-
+    @Autowired
     EtudiantRepository etudiantRepository;
 
     DepartementRepository departementRepository;
@@ -49,10 +49,12 @@ public class EtudiantServiceImpl implements IEtudiantService{
 
     @Override
     public void assignEtudiantToDepartement(Integer etudiantId, Integer departementId) {
-        Etudiant e = etudiantRepository.findById(etudiantId).get();
-        Departement d= departementRepository.findById(departementId).get();
-        e.setDepartement(d);
-        etudiantRepository.save(e);
+        Etudiant e = etudiantRepository.findById(etudiantId).orElse(null);
+        Departement d= departementRepository.findById(departementId).orElse(null);
+        if (e!=null) {
+            e.setDepartement(d);
+            etudiantRepository.save(e);
+        }
     }
 
     @Override
@@ -98,8 +100,11 @@ public class EtudiantServiceImpl implements IEtudiantService{
 
     @Override
     public List<Etudiant> getEtudiantsByDepartement(Integer idDepartement) {
-        Departement departement=departementRepository.findById(idDepartement).get();
-        return departement.getEtudiants();
+        Departement departement=departementRepository.findById(idDepartement).orElse(null);
+        if (departement!=null){
+            return departement.getEtudiants();
+        }
+        return new ArrayList<>();
     }
 
 
