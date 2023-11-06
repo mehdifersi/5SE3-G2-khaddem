@@ -79,23 +79,23 @@ public class EtudiantServiceImpl implements IEtudiantService{
 
     @Transactional
     public Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat, Integer idEquipe) {
-        Contrat contrat = contratRepository.findById(idContrat).get();
-        Equipe equipe=equipeRepository.findById(idEquipe).get();
+        Contrat contrat = contratRepository.findById(idContrat).orElse(null);
+        Equipe equipe=equipeRepository.findById(idEquipe).orElse(null);
         Etudiant etudiant= etudiantRepository.save(e);
         log.info("contrat: "+contrat.getSpecialite());
         log.info("equipe: "+equipe.getNomEquipe());
         log.info("etudiant: "+etudiant.getNomE()+" "+etudiant.getPrenomE()+" "+etudiant.getOp());
         List<Equipe> equipesMisesAjour = new ArrayList<>();
-        contrat.setEtudiant(etudiant);
-        if(etudiant.getEquipes()!=null) {
-            equipesMisesAjour=etudiant.getEquipes();
+        if (contrat!=null && equipe!=null){
+            contrat.setEtudiant(etudiant);
+            if(etudiant.getEquipes()!=null) {
+                equipesMisesAjour=etudiant.getEquipes();
+            }
+            equipesMisesAjour.add(equipe);
+            etudiant.setEquipes(equipesMisesAjour);
+            return e;
         }
-        equipesMisesAjour.add(equipe);
-        log.info("taille apres ajout : "+equipesMisesAjour.size());
-        etudiant.setEquipes(equipesMisesAjour);
-
-
-        return e;
+        return new Etudiant();
     }
 
     @Override
