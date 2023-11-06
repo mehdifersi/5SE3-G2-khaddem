@@ -2,17 +2,11 @@ package tn.esprit.spring.khaddem;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import tn.esprit.spring.khaddem.entities.Contrat;
 import tn.esprit.spring.khaddem.entities.Equipe;
-import tn.esprit.spring.khaddem.entities.Etudiant;
-import tn.esprit.spring.khaddem.entities.Niveau;
-import tn.esprit.spring.khaddem.repositories.ContratRepository;
 import tn.esprit.spring.khaddem.repositories.EquipeRepository;
 import tn.esprit.spring.khaddem.services.EquipeServiceImpl;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
