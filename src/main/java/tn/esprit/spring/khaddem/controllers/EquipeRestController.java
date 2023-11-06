@@ -47,9 +47,12 @@ public class EquipeRestController {
     @ResponseBody
     public Equipe updateEtudiant(@PathVariable Integer id,@RequestBody EquipeDTO equipeDTO) {
         Equipe existingEquipe = equipeRepository.findById(id).orElse(null);
-        existingEquipe.setNomEquipe(equipeDTO.getNomEquipe());
-        existingEquipe.setNiveau(equipeDTO.getNiveau());
-        return  equipeService.updateEquipe(existingEquipe);
+        if (existingEquipe!=null){
+            existingEquipe.setNomEquipe(equipeDTO.getNomEquipe());
+            existingEquipe.setNiveau(equipeDTO.getNiveau());
+            return  equipeService.updateEquipe(existingEquipe);
+        }
+        return new Equipe();
     }
 
    // @Scheduled(cron="0 0 13 * * *")
