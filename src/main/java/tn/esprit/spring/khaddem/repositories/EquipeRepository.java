@@ -4,7 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import tn.esprit.spring.khaddem.entities.Equipe;
 import tn.esprit.spring.khaddem.entities.Niveau;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public interface EquipeRepository extends JpaRepository<Equipe,Integer> {
