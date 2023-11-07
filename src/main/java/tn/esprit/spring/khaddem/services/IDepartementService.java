@@ -9,7 +9,10 @@ public interface IDepartementService {
     Departement addDepartement(Departement d);
     Departement updateDepartement(Departement d);
     Departement retrieveDepartement(Integer idDepart);
-    public List<Departement> retrieveDepartementsByUniversite(Integer idUniversite);
+
+    void removeDepartement(Integer idDept);
+    List<Departement> retrieveDepartementsByUniversite(Integer idUniversite);
+
 
 
 }

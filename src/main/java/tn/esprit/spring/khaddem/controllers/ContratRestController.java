@@ -1,7 +1,6 @@
 package tn.esprit.spring.khaddem.controllers;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +19,7 @@ public class ContratRestController {
     @GetMapping("/retrieve-all-contrats")
     @ResponseBody
     public List<Contrat> getContrats() {
-        List<Contrat> listContrats = contratService.retrieveAllContrats();
-        return listContrats;
+        return contratService.retrieveAllContrats();
     }
 
     // http://localhost:8089/Kaddem/contrat/retrieve-contrat/8
@@ -35,24 +33,21 @@ public class ContratRestController {
     @PostMapping("/add-contrat")
     @ResponseBody
     public Contrat addContrat(@RequestBody Contrat c) {
-        Contrat contrat = contratService.addContrat(c);
-        return contrat;
+        return contratService.addContrat(c);
     }
 
     // http://localhost:8089/Kaddem/contrat/update-contrat
     @PutMapping("/update-contrat")
     @ResponseBody
     public Contrat updateEtudiant(@RequestBody Contrat cont) {
-        Contrat c= contratService.updateContrat(cont);
-        return c;
+        return contratService.updateContrat(cont);
     }
 
     // http://localhost:8089/Kaddem/contrat/addAndAffectContratToEtudiant/salah/ahmed
     @PostMapping("/addAndAffectContratToEtudiant/{nomE}/{prenomE}")
     @ResponseBody
     public Contrat addAndAffectContratToEtudiant(@RequestBody Contrat contrat,@PathVariable("nomE") String nomE,@PathVariable("prenomE") String prenomE) {
-        Contrat c= contratService.addAndAffectContratToEtudiant(contrat,nomE,prenomE);
-        return c;
+        return contratService.addAndAffectContratToEtudiant(contrat,nomE,prenomE);
     }
 
     //The most common ISO Date Format yyyy-MM-dd — for example, "2000-10-31".
