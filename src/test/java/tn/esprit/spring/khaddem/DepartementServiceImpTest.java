@@ -1,9 +1,6 @@
 package tn.esprit.spring.khaddem;
 
 
-
-import lombok.var;
-import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,10 +10,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import tn.esprit.spring.khaddem.dto.DepartementDto;
-import tn.esprit.spring.khaddem.dto.DtoConverter;
-import tn.esprit.spring.khaddem.entities.Contrat;
+
 import tn.esprit.spring.khaddem.entities.Departement;
 import tn.esprit.spring.khaddem.entities.Universite;
 import tn.esprit.spring.khaddem.repositories.DepartementRepository;
@@ -24,22 +18,16 @@ import tn.esprit.spring.khaddem.repositories.UniversiteRepository;
 import tn.esprit.spring.khaddem.services.DepartementServiceImpl;
 
 
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
  class DepartementServiceImpTest {
-
-
 
 
     @InjectMocks
@@ -70,13 +58,11 @@ import static org.mockito.Mockito.*;
 
     @Test
      void testRetrieveDepartement() {
-
         Departement departement = new Departement();
         departement.setIdDepartement(1);
         departement.setNomDepart("Dept 1");
 
         Mockito.when(departementRepository.findById(1)).thenReturn(Optional.of(departement));
-
         Departement retrievedDepartement = departementService.retrieveDepartement(1);
 
         Assertions.assertEquals(departement, retrievedDepartement);
@@ -108,7 +94,7 @@ import static org.mockito.Mockito.*;
 
         Departement result = departementService.updateDepartement(updatedDepartement);
 
-        assertEquals(sampleDepartement, result);
+        Assertions.assertEquals(sampleDepartement, result);
 
     }
 
@@ -136,7 +122,7 @@ import static org.mockito.Mockito.*;
 
         List<Departement> retrievedDepartements = departementService.retrieveDepartementsByUniversite(universite.getIdUniversite());
 
-        assertEquals(departements, retrievedDepartements);
+        Assertions.assertEquals(departements, retrievedDepartements);
     }
 
 
