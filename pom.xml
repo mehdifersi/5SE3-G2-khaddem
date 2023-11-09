@@ -76,6 +76,13 @@
 
 
     </dependencies>
+    <distributionManagement>
+        <repository>
+            <id>deploymentRepo</id>
+            <name>Nexus Repository</name>
+            <url>http://localhost:8081/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
 
     <build>
         <plugins>
@@ -119,10 +126,5 @@
         </plugins>
          <finalName>5SE3-G2-khaddem</finalName>
     </build>
-<distributionManagement>
-  <repository>
-    <id>deploymentRepo</id>
-    <url>http://localhost:8081/repository/khaddem/</url>
-  </repository>
-</distributionManagement>
+
 </project>
