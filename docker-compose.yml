@@ -2,10 +2,10 @@ version: "3"
 services:
   mysqldb:
     container_name: mysqldb
-    image: mahdifersi/my-mysql
+    image: mysql/mysql-server:8.0
     restart: unless-stopped
     ports:
-      - 3306:3306
+      - 3307:3306
     environment:
       - MYSQL_ROOT_PASSWORD=
       - MYSQL_DATABASE=khaddemApp
