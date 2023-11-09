@@ -10,7 +10,7 @@
     </parent>
     <groupId>tn.esprit.spring</groupId>
     <artifactId>khaddem</artifactId>
-    <version>4.0</version>
+    <version>4.1</version>
     <name>khaddem</name>
     <description>khaddem</description>
     <properties>
@@ -20,6 +20,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -59,6 +64,17 @@
             <artifactId>jacoco-maven-plugin</artifactId>
             <version>0.8.6</version>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+         <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>3.1.1</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -79,10 +95,6 @@
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>3.9.1.2184</version>
-                <configuration>
-                    <!--<sonar.login>d1e2bdc369d71af0e21122296faf9b4007498216</sonar.login>-->
-                    <!-- Add other relevant configuration here -->
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -110,7 +122,7 @@
 <distributionManagement>
   <repository>
     <id>deploymentRepo</id>
-    <url>http://192.168.44.135:8081/repository/khaddem/</url>
+    <url>http://localhost:8081/repository/khaddem/</url>
   </repository>
 </distributionManagement>
 </project>
