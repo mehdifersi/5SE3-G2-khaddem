@@ -122,7 +122,7 @@
     <distributionManagement>
       <repository>
         <id>deploymentRepo</id>
-        <url>http://172.17.0.1:8081:8081/repository/khaddem/</url>
+        <url>http://192.168.88.128:8081/repository/maven-releases/</url>
       </repository>
     </distributionManagement>
 </project>
