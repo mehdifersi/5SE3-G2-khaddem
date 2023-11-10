@@ -3,7 +3,6 @@ services:
   mysqldb:
     container_name: mysqldb
     image:  mysql/mysql-server:8.0
-    restart: unless-stopped
     ports:
       - 3307:3306
     environment:
@@ -17,7 +16,6 @@ services:
   spring_app:
     image: nourajimi/nourajimi_5se3-g2-khaddem
     container_name: khaddemProject
-    restart: on-failure
     environment:
       - spring.datasource.url=jdbc:mysql://localhost:3306/khaddemApp?useUnicode=true&createDatabaseIfNotExist=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     ports:
