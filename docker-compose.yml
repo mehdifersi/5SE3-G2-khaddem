@@ -2,7 +2,7 @@ version: "3"
 services:
   mysqldb:
     container_name: mysqldb
-    image: mahdifersi/my-mysql
+    image: 'mysql:latest'
     restart: unless-stopped
     ports:
       - 3306:3306
@@ -15,11 +15,11 @@ services:
       - my-network
 
   spring_app:
-    image: mahdifersi/mahdifersi-5se3-g2-khaddem
+    image: nourajimi/nourajimi_5se3-g2-khaddem
     container_name: khaddemProject
     restart: on-failure
     environment:
-      - spring.datasource.url=jdbc:mysql://localhost:3306/khaddemApp?useUnicode=true&createDatabaseIfNotExist=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      - spring.datasource.url=jdbc:mysql://mysqldb:3306/khaddemApp?useUnicode=true&createDatabaseIfNotExist=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     ports:
       - 8070:8070
     depends_on:
