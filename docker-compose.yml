@@ -6,10 +6,9 @@ services:
     ports:
       - 3306:3306
     environment:
-      - MYSQL_ROOT_PASSWORD=
-      - MYSQL_DATABASE=khaddemApp
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_DATABASE: khaddemProject
+
     networks:
       - my-network
 
