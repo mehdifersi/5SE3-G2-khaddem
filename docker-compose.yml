@@ -14,7 +14,7 @@ services:
       - my-network
 
   spring_app:
-    image: mahdifersi/mahdifersi-5se3-g2-khaddem
+    image: sephinoctis/dhiahamrouni-5se3-g2-khaddem
     container_name: khaddemProject
     ports:
       - 8070:8070
