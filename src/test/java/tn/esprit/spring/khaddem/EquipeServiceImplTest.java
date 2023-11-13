@@ -111,5 +111,5 @@ class EquipeServiceImplTest {
         Assert.assertNotNull(retrievedTeam);
         Assertions.assertEquals(1, retrievedTeam.getIdEquipe());
     }
-    
+
 }
