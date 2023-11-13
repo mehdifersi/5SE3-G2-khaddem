@@ -29,7 +29,7 @@ services:
   spring_app:
     depends_on:
       - db
-    image: mahdifersi/mahdifersi-5se3-g2-khaddem:latest
+    image: mahdifersi/mahdifersi-5se3-g2-khaddem
     ports:
       - "8070:8070"
 
