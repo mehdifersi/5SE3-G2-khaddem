@@ -1,26 +1,43 @@
-version: "3"
+#version: "3"
+#services:
+#  mysqldb:
+#    container_name: mysqldb
+#    image: mysql:8.0
+#    ports:
+#      - 3307:3306
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=admin
+#      - MYSQL_DATABASE=khaddemApp
+#      - MYSQL_USER=root
+#      - MYSQL_PASSWORD=admin
+#    networks:
+#      - my-network
+#
+#  spring_app:
+#    image: mahdifersi/mahdifersi-5se3-g2-khaddem
+#    container_name: khaddemProject
+#    ports:
+#      - 8070:8070
+#    depends_on:
+#      - mysqldb
+#    networks:
+#      - my-network
+#networks:
+#  my-network:
+version: "2"
 services:
-  mysqldb:
-    container_name: mysqldb
-    image: mysql:8.0
-    ports:
-      - 3307:3306
-    environment:
-      - MYSQL_ROOT_PASSWORD=admin
-      - MYSQL_DATABASE=khaddemApp
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=admin
-    networks:
-      - my-network
-
   spring_app:
-    image: mahdifersi/mahdifersi-5se3-g2-khaddem
-    container_name: khaddemProject
-    ports:
-      - 8070:8070
     depends_on:
-      - mysqldb
-    networks:
-      - my-network
-networks:
-  my-network: 
+      - db
+    image: mahdifersi/mahdifersi-5se3-g2-khaddem:latest
+    ports:
+      - "8070:8070"
+
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      MYSQL_DATABASE: khaddemApp
+      MYSQL_ROOT_PASSWORD: admin
+    ports:
+      - "3307:3306"
