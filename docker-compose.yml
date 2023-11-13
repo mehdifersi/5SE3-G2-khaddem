@@ -1,5 +1,37 @@
-version: "3"
+#version: "3"
+#services:
+#  mysqldb:
+#    container_name: mysqldb
+#    image: mysql:8.0
+#    ports:
+#      - 3307:3306
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=admin
+#      - MYSQL_DATABASE=khaddemApp
+#      - MYSQL_USER=root
+#      - MYSQL_PASSWORD=admin
+#    networks:
+#      - my-network
+#
+#  spring_app:
+#    image: mahdifersi/mahdifersi-5se3-g2-khaddem
+#    container_name: khaddemProject
+#    ports:
+#      - 8070:8070
+#    depends_on:
+#      - mysqldb
+#    networks:
+#      - my-network
+#networks:
+#  my-network:
+version: "2"
 services:
+<<<<<<< main
+  spring_app:
+    depends_on:
+      - db
+    image: mahdifersi/mahdifersi-5se3-g2-khaddem
+=======
   mysqldb:
     container_name: mysqldb
     image: mysql/mysql-server:8.0
@@ -20,15 +52,15 @@ services:
       - spring.datasource.username=root
       - spring.datasource.password=
       - spring.jpa.hibernate.ddl-auto=update
+>>>>>>> NourAjimi-5SE3-G2
     ports:
-      - 8070:8070
-    depends_on:
-      - mysqldb
-    networks:
-      - my-network
-networks:
-  my-network:  # Declaration of the 'docker-workshop-network' network
-    driver: bridge  # Specify the driver for the network
+      - "8070:8070"
 
-volumes:
-  db:  # Declaration of the 'db' volume
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      MYSQL_DATABASE: khaddemApp
+      MYSQL_ROOT_PASSWORD: admin
+    ports:
+      - "3307:3306"

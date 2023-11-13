@@ -11,13 +11,12 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import tn.esprit.spring.khaddem.entities.Contrat;
-import tn.esprit.spring.khaddem.entities.Etudiant;
-import tn.esprit.spring.khaddem.entities.Specialite;
 import tn.esprit.spring.khaddem.repositories.ContratRepository;
+import tn.esprit.spring.khaddem.repositories.EtudiantRepository;
 import tn.esprit.spring.khaddem.services.ContratServiceImpl;
 
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +26,8 @@ class ContratServiceImplMockTest {
     private ContratServiceImpl contratService;
     @Mock
     private ContratRepository contratRepository;
+    @Mock
+    private EtudiantRepository etudiantRepository;
 
     @BeforeEach
     public void setUp(){
@@ -68,6 +69,16 @@ class ContratServiceImplMockTest {
         contratService.removeContrat(contratId);
 
         Mockito.verify(contratRepository, Mockito.times(1)).deleteById(contratId);
+    }
+    @Test
+     void testNbContratsValides() {
+        Date startDate = Date.valueOf("2023-03-04");
+        Date endDate = Date.valueOf("2024-03-04");
+        int expectedCount = 5;
+        Mockito.when(contratRepository.getnbContratsValides(startDate, endDate)).thenReturn(expectedCount);
+        int result = contratService.nbContratsValides(startDate, endDate);
+        Mockito.verify(contratRepository).getnbContratsValides(startDate, endDate);
+        Assertions.assertEquals(expectedCount, result);
     }
 
 }
