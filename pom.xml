@@ -122,7 +122,7 @@
 <distributionManagement>
   <repository>
     <id>deploymentRepo</id>
-    <url>http://192.168.44.135:8081/repository/khaddem/</url>
+    <url>http://192.168.150.128:8081/repository/khaddem/</url>
   </repository>
 </distributionManagement>
 </project>
